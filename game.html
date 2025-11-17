@@ -1,22 +1,371 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <title>Title of the document</title>
-   <link rel="stylesheet" href="CSS/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Game</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0;
+            border-radius: 0;
+            transition: color 0.3s ease;
+            background-color: transparent;
+            border: none;
+        }
+
+        nav a:hover {
+            color: #cccccc;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+            color: #00ff96;
+            text-shadow: 0 0 10px rgba(0, 255, 150, 0.5);
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .game-info {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: rgba(0, 255, 150, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 255, 150, 0.3);
+        }
+
+        .game-info p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #cccccc;
+        }
+
+        .score {
+            font-size: 1.3rem;
+            color: #00ff96;
+            font-weight: bold;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #00ff96 0%, #00cc7a 100%);
+            border: 3px solid rgba(0, 255, 150, 0.5);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 150, 0.2);
+            user-select: none;
+        }
+
+        .card:hover:not(.matched) {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 255, 150, 0.4);
+        }
+
+        .card.flipped {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .card.matched {
+            background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+            cursor: default;
+            box-shadow: 0 4px 15px rgba(81, 207, 102, 0.4);
+        }
+
+        .card.disabled {
+            pointer-events: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .reset-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #00ff96 0%, #00cc7a 100%);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 150, 0.3);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 150, 0.5);
+        }
+
+        .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-top: 20px;
+            min-height: 30px;
+            color: #00ff96;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 150, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .card {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-   <nav>
-       <ul>
-           <li><a href="index.html">Home</a></li>
-           <li><a href="hobbies.html">Hobbies</a></li>
-           <li><a href="discover.html">Discover UMD</a></li>
-           <li><a href="resume.html">Resume</a></li>
-           <li><a href="career.html">Career</a></li>
-           <li><a href="game.html">Game</a></li>
-       </ul>
-   </nav>
-   <h1> My Game </h1>
-   <a href="https://www.umdmis.com">This is a link</a>
-   <img src="images/mypic.jpg" height="800" >
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <h1>🎮 Matching Game</h1>
+
+    <div class="game-container">
+        <div class="game-info">
+            <p>Match the pairs! Click on cards to flip them over.</p>
+            <p class="score">Matches: <span id="matches">0</span> / 8</p>
+            <p id="moves">Moves: 0</p>
+        </div>
+
+        <div class="game-board" id="gameBoard"></div>
+
+        <div class="button-container">
+            <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+        </div>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const symbols = ['🏔️', '🚴', '🎿', '⛷️', '🏔️', '🚴', '🎿', '⛷️'];
+        const meanings = ['Mountain', 'Biking', 'Ski', 'Snowboard', 'Mountain', 'Biking', 'Ski', 'Snowboard'];
+        
+        let cards = [];
+        let flipped = [];
+        let matched = [];
+        let moves = 0;
+        let matches = 0;
+
+        // Function to play celebration sound using Web Audio API
+        function playCelebrationSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const now = audioContext.currentTime;
+
+            // Create a burst of celebratory beeps
+            const notes = [523, 659, 784, 1047]; // C, E, G, C (higher octave)
+            
+            notes.forEach((frequency, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                oscillator.connect(gain);
+                gain.connect(audioContext.destination);
+                
+                oscillator.frequency.value = frequency;
+                oscillator.type = 'sine';
+                
+                gain.gain.setValueAtTime(0.3, now + index * 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.1 + 0.15);
+                
+                oscillator.start(now + index * 0.1);
+                oscillator.stop(now + index * 0.1 + 0.15);
+            });
+        }
+
+        // Function to play error sound
+        function playErrorSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const now = audioContext.currentTime;
+
+            // Create an error/buzzer sound
+            const errorNotes = [330, 220]; // E, A (lower notes going down)
+            
+            errorNotes.forEach((frequency, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                oscillator.connect(gain);
+                gain.connect(audioContext.destination);
+                
+                oscillator.frequency.value = frequency;
+                oscillator.type = 'square'; // Use square wave for error sound
+                
+                gain.gain.setValueAtTime(0.2, now + index * 0.15);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.15 + 0.2);
+                
+                oscillator.start(now + index * 0.15);
+                oscillator.stop(now + index * 0.15 + 0.2);
+            });
+        }
+
+        function initGame() {
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.innerHTML = '';
+            cards = [];
+            flipped = [];
+            matched = [];
+            moves = 0;
+            matches = 0;
+
+            // Shuffle symbols
+            const shuffled = [...symbols].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach((symbol, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = '?';
+                card.dataset.index = index;
+                card.dataset.symbol = symbol;
+                card.onclick = () => flipCard(index);
+                gameBoard.appendChild(card);
+                cards.push(card);
+            });
+
+            updateDisplay();
+        }
+
+        function flipCard(index) {
+            if (flipped.length >= 2 || flipped.includes(index) || matched.includes(index)) {
+                return;
+            }
+
+            const card = cards[index];
+            card.classList.add('flipped');
+            card.innerHTML = card.dataset.symbol;
+            flipped.push(index);
+
+            if (flipped.length === 2) {
+                moves++;
+                checkMatch();
+            }
+
+            updateDisplay();
+        }
+
+        function checkMatch() {
+            const [index1, index2] = flipped;
+            const symbol1 = cards[index1].dataset.symbol;
+            const symbol2 = cards[index2].dataset.symbol;
+
+            if (symbol1 === symbol2) {
+                // Play celebration sound
+                playCelebrationSound();
+
+                cards[index1].classList.add('matched');
+                cards[index2].classList.add('matched');
+                cards[index1].classList.remove('flipped');
+                cards[index2].classList.remove('flipped');
+                matched.push(index1, index2);
+                matches++;
+
+                if (matches === 4) {
+                    document.getElementById('message').innerHTML = '🎉 You Won! Great Job!';
+                }
+
+                flipped = [];
+            } else {
+                // Play error sound
+                playErrorSound();
+
+                setTimeout(() => {
+                    cards[index1].classList.remove('flipped');
+                    cards[index2].classList.remove('flipped');
+                    cards[index1].innerHTML = '?';
+                    cards[index2].innerHTML = '?';
+                    flipped = [];
+                }, 1000);
+            }
+        }
+
+        function updateDisplay() {
+            document.getElementById('matches').innerHTML = matches;
+            document.getElementById('moves').innerHTML = 'Moves: ' + moves;
+        }
+
+        function resetGame() {
+            document.getElementById('message').innerHTML = '';
+            initGame();
+        }
+
+        // Initialize game on page load
+        window.onload = initGame;
+    </script>
 </body>
 </html>

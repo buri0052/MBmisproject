@@ -1,22 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <title>Title of the document</title>
-   <link rel="stylesheet" href="CSS/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Career</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* Top Two Boxes - Side by Side */
+        .career-boxes-top {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Bottom Two Boxes - Full Width */
+        .career-boxes-bottom {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .career-box {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .career-box:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .career-box h2 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .career-box .content-placeholder {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 150px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .career-boxes-bottom .career-box {
+            max-width: 600px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .career-box {
+                max-width: 100%;
+            }
+
+            .career-boxes-bottom .career-box {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-   <nav>
-       <ul>
-           <li><a href="index.html">Home</a></li>
-           <li><a href="hobbies.html">Hobbies</a></li>
-           <li><a href="discover.html">Discover UMD</a></li>
-           <li><a href="resume.html">Resume</a></li>
-           <li><a href="career.html">Career</a></li>
-           <li><a href="game.html">Game</a></li>
-       </ul>
-   </nav>
-   <h1> My Career</h1>
-   <a href="https://www.umdmis.com">This is a link</a>
-   <img src="images/mypic.jpg" height="800" >
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <h1>My Career</h1>
+
+    <!-- Top Two Career Boxes - Side by Side -->
+    <div class="career-boxes-top">
+        <div class="career-box">
+            <h2>Afton Alps</h2>
+            <div class="content-placeholder">
+                <p> I would like a job or internship opportunity at Afton Alps because it alligns with my acedemic interests.
+                    Working in a management position at a ski resort would provide me with valuable experience in customer service, operations, and team leadership. 
+                    I have past experience working in customer service roles and enjoy interacting with people, which would make me a great fit for a position at Afton Alps.
+                    I also have a passion for snowboarding, and would love to give back to the community that I am a part of.
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+
+        <div class="career-box">
+            <h2>Best Buy</h2>
+            <div class="content-placeholder">
+                <p> I would like a job or internship at Best Buy because it would allow me to be a part of a major local business.
+                    working for Best Buy would provide me with experience in retail management, customer service, and sales strategies.
+                    I have not worked in retail before, but I am eager to learn and develop new skills in this area. I am also interested 
+                    in working for a local company that has a strong presence in the community.
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Two Career Boxes -->
+    <div class="career-boxes-bottom">
+        <div class="career-box">
+            <h2>What Makes You Qualified for These Positions</h2>
+            <div class="content-placeholder">
+                <p> What makes me cut out for these positions is that I am a strong leader
+                    that has past experience working in customer service roles. I am dependable, hardworking, and eager to learn new skills.
+                    I have worked in the Ski Resort Industry for 3 years, and am interested in Ski Resort Management, and I have worked in the restaraunt indusrty for 6 years, giving me great customer service skills.
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+    </div>
+
+    <div class="career-boxes-bottom">
+        <div class="career-box">
+            <h2>How Your Skills and Interests Align With Their Needs</h2>
+            <div class="content-placeholder">
+                <p> My skills allign with these companies needs because they need strong leaders who are willing to grow and learn with the compamy.
+                    I have experience working in the field, and with my current acedemic pursuits, I believe I can bring value to these organizations.
+
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="career-boxes-bottom">
+        <div class="career-box">
+            <h2>Contact Information</h2>
+            <div class="content-placeholder">
+                <ul>
+                    <li>Afton Alps Phone: 651-436-5245</li>
+                    <li>Best Buy Phone: 1-888-BEST-BUY (1-888-237-8289)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

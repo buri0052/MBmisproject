@@ -1,31 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
-   <title>Title of the document</title>
-   <link rel="stylesheet" href="CSS/styles.css">
-</head>
-<body>
-   <nav>
-       <ul>
-           <li><a href="index.html">Home Page</a></li>
-           <li><a href="hobbies.html">Hobbies</a></li>
-           <li><a href="discover.html">Discover UMD</a></li>
-           <li><a href="resume.html">Resume</a></li>
-           <li><a href="career.html">Career</a></li>
-           <li><a href="game.html">Game</a></li>
-       </ul>
-   </nav>
-   <h1> Home Page</h1>
-   
-   
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matt Buri - Personal Website</title>
+  <link rel="stylesheet" href="CSS/styles.css">
   <style>
     body {
       background-color: black;
@@ -92,16 +71,51 @@
     nav {
       margin-bottom: 40px;
     }
+
+    .video-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .video-container h2 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .video-container video {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: black;
+    }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="discover.html">Discover UMD</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  </nav>
+
+  <h1>Home Page</h1>
+
+  <!-- Content Container with Images -->
   <div class="content-container">
     <div class="content-section">
       <img src="media/IMG_8317 (1).jpg" alt="Profile Picture" />
       <h2>About Me</h2>
       <p>I am Matt Buri, a 20 year old from St. Paul Minnesota. 
-         I am a sophomore at the University of Minnesota Duluth studying Business Management. 
-         I have experience working at Afton Alps (Vail Resorts) and Lucky 13's Pub.</p>
+         I am studying Business Management at the University of Minnesota Duluth. 
+         I have professional experience working for Vail Reosrts as a Terrain Park Attendant.</p>
     </div>
 
     <div class="content-section">
@@ -109,16 +123,28 @@
       <h2>Mountain Biking</h2>
       <p>During the summer months, I spend my time mountain biking. 
          It's one of my favorite ways to stay active and enjoy the outdoors 
-         while experiencing the thrill of the trails.</p>
+         while experiencing adrenaline and high speeds.</p>
     </div>
 
     <div class="content-section">
       <img src="media/Hot Dish .JPG" alt="Snowboarding" />
       <h2>Winter Sports</h2>
-      <p>In the winter, you'll find me on the slopes snowboarding. 
+      <p>In the winter, you'll find me spending my time snowboarding. 
          This passion led me to work at Afton Alps, where I combined 
-         my love for winter sports with professional experience.</p>
+         my love for winter sports with professional experience. 
+        I work as a Terrain Park Attendant, helping to build and 
+      maintain the terrain parks.</p>
     </div>
   </div>
+
+  <!-- Video Section -->
+  <div class="video-container">
+    <h2>Introduction Video</h2>
+    <video controls playsinline>
+      <source src="videos/mattwebsite.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="videos/mattwebsite.mp4">Download the video</a>.
+    </video>
+  </div>
+
 </body>
 </html>

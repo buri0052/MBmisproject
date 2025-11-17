@@ -1,22 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <title>Title of the document</title>
-   <link rel="stylesheet" href="CSS/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover UMD</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .text-boxes-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .text-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .text-box h2 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .text-box .content-placeholder {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 150px;
+            color: #cccccc;
+        }
+
+        /* Video Section */
+        .video-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-container h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: black;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .text-boxes-container {
+                flex-direction: column;
+            }
+
+            .text-box {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-   <nav>
-       <ul>
-           <li><a href="index.html">Home</a></li>
-           <li><a href="hobbies.html">Hobbies</a></li>
-           <li><a href="discover.html">Discover UMD</a></li>
-           <li><a href="resume.html">Resume</a></li>
-           <li><a href="career.html">Career</a></li>
-           <li><a href="game.html">Game</a></li>
-       </ul>
-   </nav>
-   <h1> Discover UMD </h1>
-   <a href="https://www.umdmis.com">This is a link</a>
-   <img src="images/mypic.jpg" height="800" >
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <h1>Discover UMD</h1>
+
+    <!-- Top Two Text Boxes -->
+    <div class="text-boxes-container">
+        <div class="text-box">
+            <h2>Why I Chose the University of Minnesota Duluth</h2>
+            <div class="content-placeholder">
+                <p> I chose the University of Minnesota Duluth because of the Labovitz School
+                    of Business and Economics, and because of the beautiful location of the campus.
+                    UMD has a strong business program that aligns with my career goals, and the management major that I am pursuig.
+                    The campus is located right by Lake Superior, providing stunning views and outdoor activities. 
+
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+
+        <div class="text-box">
+            <h2>What You Like About Duluth and the Surrounding Area</h2>
+            <div class="content-placeholder">
+                <p> My favorite thing about Duluth is Lake Superior and the nature surrounding it.
+                    The Lake is special, and being able to live near such a vast body of freshwater is amazing.
+                    I also love to mountain bike and snowboard, and Duluth is home to some of the best mountain biking in the world, and amazing snowy winters.
+                    Duluth has a vibrant community and plenty of outdoor activities to enjoy year-round.
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-container">
+        <h2>Marketing Video</h2>
+        <video controls playsinline>
+            <source src="videos/mattwebsite.mp4" type="video/mp4">
+            Your browser does not support the video tag. <a href="videos/mattwebsite.mp4">Download the video</a>.
+        </video>
+    </div>
+
+    <!-- Bottom Text Box -->
+    <div class="text-boxes-container">
+        <div class="text-box" style="max-width: 1200px;">
+            <h2>Personal Experiences and Campus Highlights</h2>
+            <div class="content-placeholder">
+                <p> Some of my favorite personal experiences that I have made at UMD 
+                    are creating the Ski and Snowboard Club, and the Mountain Biking Club.
+                    Creating these two clubs with my friends have allowed me to meet many new people, and gain skills 
+                    that will help me in the future. My favorite part about campus is that everything is connected indoors. 
+                    This means that in the winter, I can walk from class to class without having to go outside in the cold!
+                </p>
+                <!-- Content to be added later -->
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
